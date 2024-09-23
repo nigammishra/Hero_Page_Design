@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide and Zoom Animation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+        <div class="text">
+            <p class="text__short">nigammishra</p>
+            <h1 class="text__title">FrontEnd Ace...</h1>
+            <p class="text__description">"Created a hero section with a Bootstrap `col-6` layout, featuring a 3D carousel on one side, providing a dynamic and visually immersive experience that draws users' attention."</p>
+            <a class="text__button" href="https://nigammishra.github.io/Nigam_Portfolio2/">Learn more</a>
+        </div>
+        
+        <div class="grid__container">
+            <div class="grid__item one"></div>
+            <div class="grid__item two"></div>
+            <div class="grid__item three"></div>
+            <div class="grid__item four"></div>
+            <div class="grid__item five"></div>
+            <div class="grid__item six"></div>
+            <div class="grid__item seven"></div>
+            <div class="grid__item eight"></div>
+            <div class="grid__item nine"></div>
+            <div class="grid__item ten"></div>
+            <div class="grid__item eleven"></div>
+            <div class="grid__item twelve"></div>
+        </div>
+    </div>
+  </div>
+    <script>
+        const textSection = document.querySelector('.text');
+        const gridItems = document.querySelectorAll('.grid__item');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+
+        observer.observe(textSection);
+        gridItems.forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
